@@ -1,0 +1,9 @@
+torch
+tensorflow
+transformers
+huggingface_hub
+pymongo
+qdrant-client
+gradio
+jupyter
+zenml
