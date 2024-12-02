@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ./app
+    container_name: rag_app
+    volumes:
+      - ./app:/app
+    ports:
+      - "8888:8888"  # Jupyter Notebook
+      - "8000:8000"  # If your app uses this port
+    depends_on:
+      - mongodb
+      - qdrant
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: bash -c "jupyter notebook --ip=0.0.0.0 --port=8888 --allow-root --no-browser"
+
+  mongodb:
+    image: mongo:latest
+    container_name: rag_mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+  qdrant:
+    image: qdrant/qdrant
+    container_name: rag_qdrant
+    ports:
+      - "6333:6333"
+
+volumes:
+  mongodb_data:
