@@ -20,6 +20,7 @@ COPY . /app
 
 # Expose ports
 EXPOSE 8888 8000
+EXPOSE 7860
 
 # Define environment variable
 ENV PYTHONUNBUFFERED=1

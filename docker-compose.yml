@@ -9,13 +9,18 @@ services:
       - ./app:/app
     ports:
       - "8888:8888"  # Jupyter Notebook
-      - "8000:8000"  # If your app uses this port
+      - "7860:7860"  # Gradio port
     depends_on:
       - mongodb
       - qdrant
     environment:
       - PYTHONUNBUFFERED=1
+          # Point the app to Ollama inside docker network
+      - OLLAMA_HOST=http://host.docker.internal:11434
     command: bash -c "jupyter notebook --ip=0.0.0.0 --port=8888 --allow-root --no-browser"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+      - "ollama:host-gateway"
 
   mongodb:
     image: mongo:latest
@@ -33,3 +38,4 @@ services:
 
 volumes:
   mongodb_data:
+  ollama_data:
