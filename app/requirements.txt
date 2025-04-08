@@ -1,0 +1,16 @@
+torch
+tensorflow
+transformers
+huggingface_hub
+pymongo
+qdrant-client
+sentence-transformers
+gradio
+jupyter
+zenml
+requests
+pymongo
+langchain-ollama
+tf-keras
+youtube_transcript_api
+beautifulsoup4
