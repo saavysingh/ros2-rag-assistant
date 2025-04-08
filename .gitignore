@@ -1,0 +1,28 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.ipynb_checkpoints/
+
+# Virtual Environments
+.venv/
+venv/
+env/
+lib/
+bin/
+include/
+share/
+etc/
+
+# Ignore Jupyter-related files
+share/jupyter/
+share/man/
+
+# Environment files
+.env
+*.env
+
+# macOS files
+.DS_Store
+
+# Logs
+*.log
